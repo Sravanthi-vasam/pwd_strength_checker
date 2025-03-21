@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            width: 350px;
+        }
+
+        input {
+            width: 93.5%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #ff5722;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background: #ff5722;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e64a19;
+        }
+
+        #result {
+            font-size: 20px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .strong {
+            color: green;
+        }
+
+        .medium {
+            color: chocolate;
+        }
+
+        .weak {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Password Strength Checker</h2>
+        <input type="text" placeholder="Enter your password" id="pwd">
+        <button onclick="checker()">Check</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function checker() {
+            let input = document.getElementById("pwd");
+            let result = document.getElementById("result");
+            let password = input.value;
+
+            if (password.length > 8) {
+                result.innerHTML = "✅ Strong 💪";
+                result.className = "strong";
+            } 
+            else if (password.length >= 5) {
+                result.innerHTML = "⚠️ Medium";
+                result.className = "medium";
+            } 
+            else {
+                result.innerHTML = "❌ Weak";
+                result.className = "weak";
+            }
+        }
+    </script>
+
+</body>
+</html>
